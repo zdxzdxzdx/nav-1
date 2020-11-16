@@ -148,7 +148,6 @@ var render = function render() {
     $li.on("click", ".close", function (e) {
       e.stopPropagation(); //阻止冒泡
 
-      console.log(hashMap);
       hashMap.splice(index);
       render();
     });
@@ -187,4 +186,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.f531f815.js.map
+//# sourceMappingURL=main.a3b6a616.js.map

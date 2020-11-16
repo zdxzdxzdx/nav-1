@@ -44,7 +44,6 @@ const render = () => {
     });
     $li.on("click", ".close", (e) => {
       e.stopPropagation(); //阻止冒泡
-      console.log(hashMap);
       hashMap.splice(index);
       render();
     });
