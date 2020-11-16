@@ -27,7 +27,6 @@ const simplifyUrl = (url) => {
 const render = () => {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach((node, index) => {
-    console.log(index);
     const $li = $(`<li>  
         <div class="site">
             <div class="logo">${node.logo}</div>
@@ -53,7 +52,7 @@ render();
 
 $(".addButton").on("click", () => {
   let url = window.prompt("请输入要添加的网址");
-  console.log(url);
+
   if (url.indexOf("http") !== 0) {
     url = "https://" + url;
   }
@@ -65,7 +64,6 @@ $(".addButton").on("click", () => {
 });
 
 window.onbeforeunload = () => {
-  console.log("页面要关闭了");
   const string = JSON.stringify(hashMap);
   localStorage.setItem("x", string);
 };

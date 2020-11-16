@@ -140,7 +140,6 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach(function (node, index) {
-    console.log(index);
     var $li = $("<li>  \n        <div class=\"site\">\n            <div class=\"logo\">".concat(node.logo, "</div>\n            <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n            <div class=\"close\">\n            <svg class=\"icon\">\n            <use xlink:href=\"#iconclose\"></use>\n        </svg>\n        </div>\n        </div>\n          </li>")).insertBefore($lastLi);
     $li.on("click", function () {
       window.open(node.url);
@@ -157,7 +156,6 @@ var render = function render() {
 render();
 $(".addButton").on("click", function () {
   var url = window.prompt("请输入要添加的网址");
-  console.log(url);
 
   if (url.indexOf("http") !== 0) {
     url = "https://" + url;
@@ -171,7 +169,6 @@ $(".addButton").on("click", function () {
 });
 
 window.onbeforeunload = function () {
-  console.log("页面要关闭了");
   var string = JSON.stringify(hashMap);
   localStorage.setItem("x", string);
 };
@@ -186,4 +183,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.a3b6a616.js.map
+//# sourceMappingURL=main.29ec516f.js.map
