@@ -29,9 +29,17 @@ body {
 .globalHeader {
   margin: 20px;
 }
+img {
+  max-width: 300px;
+}
+.show-logo {
+  display: flex;
+  justify-content: center;
+  margin-left: -10px;
+}
 @media (min-width: 500px) {
   .globalHeader {
-    margin: 60px 0 100px;
+    margin: 40px 0 80px;
   }
 }
 
@@ -152,4 +160,4 @@ body {
 }
 
 
-/*# sourceMappingURL=style.f1bf6c7c.css.map */
+/*# sourceMappingURL=style.221b2f09.css.map */

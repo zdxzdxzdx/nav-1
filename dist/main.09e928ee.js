@@ -131,7 +131,19 @@ var hashMap = xObject || [{
 }, {
   logo: "B",
   url: "https://www.baidu.com"
-}];
+}]; // function randomColor() {
+//   var col = "#";
+//   for (var i = 0; i < 6; i++)
+//     color += parseInt(Math.random() * 16).toString(16);
+//   return col;
+// }
+
+function bg3() {
+  var r = Math.floor(Math.random() * 256);
+  var g = Math.floor(Math.random() * 256);
+  var b = Math.floor(Math.random() * 256);
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
 
 var simplifyUrl = function simplifyUrl(url) {
   return url.replace("https://", "").replace("http://", "").replace("www.", "").replace(/\/.*/); //删除/开头的内容
@@ -140,7 +152,7 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach(function (node, index) {
-    var $li = $("<li>  \n        <div class=\"site\">\n            <div class=\"logo\">".concat(node.logo, "</div>\n            <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n            <div class=\"close\">\n            <svg class=\"icon\">\n            <use xlink:href=\"#iconclose\"></use>\n        </svg>\n        </div>\n        </div>\n          </li>")).insertBefore($lastLi);
+    var $li = $("<li>  \n        <div class=\"site\">\n            <div class=\"logo\" >".concat(node.logo, "</div>\n            <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n            <div class=\"close\">\n            <svg class=\"icon\">\n            <use xlink:href=\"#iconclose\"></use>\n        </svg>\n        </div>\n        </div>\n          </li>")).insertBefore($lastLi);
     $li.on("click", function () {
       window.open(node.url);
     });
@@ -173,6 +185,15 @@ window.onbeforeunload = function () {
   localStorage.setItem("x", string);
 };
 
+window.addEventListener("load", function (e) {
+  //document.body.style.color = bg3();
+  $(".logo").mouseover(function () {
+    $(".logo").css("color", bg3());
+  });
+  $(".logo").mouseout(function () {
+    $(".logo").css("color", "#000");
+  });
+});
 $(document).on("keypress", function (e) {
   var key = e.key;
 
@@ -183,4 +204,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.29ec516f.js.map
+//# sourceMappingURL=main.09e928ee.js.map

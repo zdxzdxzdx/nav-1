@@ -17,6 +17,19 @@ const hashMap = xObject || [
     url: "https://www.baidu.com",
   },
 ];
+
+// function randomColor() {
+//   var col = "#";
+//   for (var i = 0; i < 6; i++)
+//     color += parseInt(Math.random() * 16).toString(16);
+//   return col;
+// }
+function bg3() {
+  var r = Math.floor(Math.random() * 256);
+  var g = Math.floor(Math.random() * 256);
+  var b = Math.floor(Math.random() * 256);
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
 const simplifyUrl = (url) => {
   return url
     .replace("https://", "")
@@ -29,7 +42,7 @@ const render = () => {
   hashMap.forEach((node, index) => {
     const $li = $(`<li>  
         <div class="site">
-            <div class="logo">${node.logo}</div>
+            <div class="logo" >${node.logo}</div>
             <div class="link">${simplifyUrl(node.url)}</div>
             <div class="close">
             <svg class="icon">
@@ -38,6 +51,7 @@ const render = () => {
         </div>
         </div>
           </li>`).insertBefore($lastLi);
+
     $li.on("click", () => {
       window.open(node.url);
     });
@@ -48,6 +62,7 @@ const render = () => {
     });
   });
 };
+
 render();
 
 $(".addButton").on("click", () => {
@@ -67,6 +82,17 @@ window.onbeforeunload = () => {
   const string = JSON.stringify(hashMap);
   localStorage.setItem("x", string);
 };
+
+window.addEventListener("load", (e) => {
+  //document.body.style.color = bg3();
+
+  $(".logo").mouseover(function () {
+    $(".logo").css("color", bg3());
+  });
+  $(".logo").mouseout(function () {
+    $(".logo").css("color", "#000");
+  });
+});
 
 $(document).on("keypress", (e) => {
   const { key } = e;
